@@ -1,4 +1,3 @@
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.*;
@@ -17,7 +16,7 @@ import org.apache.kafka.common.TopicPartition;
 @Log4j2
 public class Consumer extends Worker {
   private KafkaConsumer<String, byte[]> consumer;
-  private static Map<Integer, Long> startOffsets = new HashMap<>();
+  //private static Map<Integer, Long> startOffsets = new HashMap<>();
   private static Map<Integer, Long> endOffsets = new HashMap<>();
 
   Consumer(TopicPartition partition) throws IOException {
@@ -41,7 +40,7 @@ public class Consumer extends Worker {
     List<PartitionInfo> partitionInfos = consumer.listTopics().get(topicName);
     List<TopicPartition> partitions =
         partitionInfos.stream().map(x -> new TopicPartition(x.topic(), x.partition())).collect(Collectors.toList());
-    consumer.beginningOffsets(partitions).forEach((k, v) -> startOffsets.put(k.partition(), v));
+    //consumer.beginningOffsets(partitions).forEach((k, v) -> startOffsets.put(k.partition(), v));
     consumer.endOffsets(partitions).forEach((k, v) -> endOffsets.put(k.partition(), v));
     consumer.close();
     return partitionInfos.size();

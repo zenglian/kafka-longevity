@@ -1,6 +1,5 @@
 import java.util.Properties;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.kafka.clients.admin.AdminClient;

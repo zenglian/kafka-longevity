@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration status="WARN" monitorInterval="30" shutdownHook="disable">
+  <appenders>
+    <console name="console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-4level [%t] %msg%n" />
+    </console>
+    <RollingFile name="roll" fileName="logs/kafka-test.log" filePattern="logs/kafka-test-%i.log">>
+      <ThresholdFilter level="info"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-4level [%t] %msg%n" />
+      <Policies>
+        <OnStartupTriggeringPolicy/>
+      </Policies>
+    </RollingFile>
+  </appenders>
+  <loggers>
+    <root level="info">
+      <appender-ref ref="console" />
+      <appender-ref ref="roll" />
+    </root>
+  </loggers>
+</configuration>

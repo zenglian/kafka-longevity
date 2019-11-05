@@ -1,0 +1,8 @@
+{
+  "records": 0,
+  "speed": 10,
+  "recordSize": 10,
+  "topic": "test1",
+  "brokers": "leon5:31090,leon5:31091",
+  "logInterval": 10
+}

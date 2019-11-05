@@ -1,0 +1,31 @@
+import java.time.Instant
+
+plugins {
+    id 'java'
+    id "application"
+}
+
+group 'kafka'
+version '1.0'
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+repositories {
+    mavenCentral()
+}
+
+
+File file = new File("src/main/resources/version")
+file.write(new Date().format("yyyy-MM-dd HH:mm:ss.SSS"))
+
+mainClassName = "Main"
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.12.1'
+    compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.1'
+    testCompile "junit:junit:4.12"
+}
